@@ -49,6 +49,23 @@ function setBlock(x, y, z, block) {
 	runCommand('setblock ' + x + ' ' + y + ' ' + z + ' ' + block);
 }
 
+bot.once('login', function() {
+	bot.chat('Bot online.');
+	bot.on('chat', (messagerName, message, translate, jsonMsg, matches) => {
+		if (messagerName != username) {
+			var split = message.split(' ');
+			if (split[0] == 'botcmd') {
+				console.log(bot.entity.position)
+				} else {
+					var command = split.slice(1).join(' ');
+					runCommand(command);
+					bot.chat('Command /' + command + ' executed on behalf of player ' + username);
+				}
+			}
+		} else if ()
+	});
+});
+
 bot.on('end', function() {
 	console.info('disconnected ' + number);
 	number--;
