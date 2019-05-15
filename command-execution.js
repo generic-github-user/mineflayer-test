@@ -108,10 +108,15 @@ bot.once('login', function() {
 					var command = split.slice(2).join(' ');
 					runCommand(command);
 					bot.chat('Command /' + command + ' executed on behalf of player ' + messagerName);
-				} else if (split[1] == 'leave' || split[1] == 'quit' || split[1] == 'end') {
+				}
+				// Disconnect from server and end program command (bot leave, bot quit, bot end)
+				else if (split[1] == 'leave' || split[1] == 'quit' || split[1] == 'end') {
+					// Log messages
 					bot.chat('Bye!');
 					console.log('Disconnecting from server');
-					bot.quit();
+					// Disconnect
+					bot.quit('User-initiated disconnect');
+					// Stop program
 					process.exit();
 				} else if (split[1] == 'var') {
 					// console.log(split[2]);
