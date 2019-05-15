@@ -56,6 +56,22 @@ bot.once('login', function() {
 			var split = message.split(' ');
 			if (split[0] == 'botcmd') {
 				console.log(bot.entity.position)
+				if (split[1] == 'sphere') {
+					var pos = bot.entity.position;
+					var r = parseFloat(split[2]);
+					for (var i = -r; i < r; i++) {
+						for (var j = -r; j < r; j++) {
+							for (var w = -r; w < r; w++) {
+								var offset = pos.offset(i, j, w)
+								var o = offset;
+								var dist = distance(pos, offset)
+								if (dist < r && dist > r - 2 && bot.blockAt(offset).name == 'air') {
+									console.log(true)
+									setBlock(o.x, o.y, o.z, 'stained_glass 5');
+								}
+							}
+						}
+					}
 				} else {
 					var command = split.slice(1).join(' ');
 					runCommand(command);
