@@ -49,6 +49,12 @@ function setBlock(x, y, z, block) {
 	runCommand('setblock ' + x + ' ' + y + ' ' + z + ' ' + block);
 }
 
+const mr = Math.round;
+
+function round(v) {
+	return new vec3(mr(v.x), mr(v.y), mr(v.z));
+}
+
 bot.once('login', function() {
 	bot.chat('Bot online.');
 	bot.on('chat', (messagerName, message, translate, jsonMsg, matches) => {
