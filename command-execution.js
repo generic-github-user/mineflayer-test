@@ -93,6 +93,20 @@ bot.once('login', function() {
 					console.log('Disconnecting from server');
 					bot.quit();
 					process.exit();
+				} else if (split[1] == 'var') {
+					// console.log(split[2]);
+					// var b = split[2];
+					// console.log(global['port']);
+					// console.log(global[b]);
+					// var f = global[b];
+					// console.log(Object.keys(global))
+					// console.log(global)
+					// console.log(this)
+					// console.log(this[b]);
+					// bot.chat(f);
+					// bot.chat(global[split[2]] || undefined);
+					// bot.chat(b)
+					bot.chat('This has not been implemented yet.');
 				}
 			}
 		} else if ()
