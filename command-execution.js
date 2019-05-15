@@ -32,6 +32,14 @@ console.log(bot.players);
 }, 3100);
 });
 
+// function distance(x1, y1, z1, x2, y2, z2) {
+	// return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
+// }
+
+function distance({x: x1, y: y1, z: z1}, {x: x2, y: y2, z: z2}) {
+	return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
+}
+
 bot.on('end', function() {
 	console.info('disconnected ' + number);
 	number--;
