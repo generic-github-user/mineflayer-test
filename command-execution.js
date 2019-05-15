@@ -54,8 +54,7 @@ bot.once('login', function() {
 	bot.on('chat', (messagerName, message, translate, jsonMsg, matches) => {
 		if (messagerName != username) {
 			var split = message.split(' ');
-			if (split[0] == 'botcmd') {
-				console.log(bot.entity.position)
+			if (split[0] == 'bot') {
 				if (split[1] == 'sphere') {
 					var pos = bot.entity.position;
 					var r = parseFloat(split[2]);
@@ -66,14 +65,13 @@ bot.once('login', function() {
 								var o = offset;
 								var dist = distance(pos, offset)
 								if (dist < r && dist > r - 2 && bot.blockAt(offset).name == 'air') {
-									console.log(true)
 									setBlock(o.x, o.y, o.z, 'stained_glass 5');
 								}
 							}
 						}
 					}
-				} else {
-					var command = split.slice(1).join(' ');
+				} else if (split[1] == 'cmd') {
+					var command = split.slice(2).join(' ');
 					runCommand(command);
 					bot.chat('Command /' + command + ' executed on behalf of player ' + username);
 				}
