@@ -57,8 +57,11 @@ bot.once('login', function() {
 			if (split[0] == 'bot') {
 				if (split[1] == 'sphere') {
 					var pos = bot.entity.position;
+					
 					var r = parseFloat(split[2]) || 10;
 					var t = parseFloat(split[3]) || 1;
+					var m = split[4] || 'stained_glass 5';
+					
 					for (var i = -r; i < r; i++) {
 						for (var j = -r; j < r; j++) {
 							for (var w = -r; w < r; w++) {
@@ -66,7 +69,7 @@ bot.once('login', function() {
 								var o = offset;
 								var dist = distance(pos, offset)
 								if (dist < r && dist > r - t && bot.blockAt(offset).name == 'air') {
-									setBlock(o.x, o.y, o.z, 'stained_glass 5');
+									setBlock(o.x, o.y, o.z, m);
 								}
 							}
 						}
