@@ -104,9 +104,14 @@ bot.once('login', function() {
 					var completionMessage = 'Sphere made of ['+m+'] generated at '+pos+' with a radius of '+r+' and thickness of '+t+'.';
 					bot.chat(completionMessage);
 					console.log(completionMessage);
-				} else if (split[1] == 'cmd') {
+				}
+				// Execute command through chat as the bot
+				else if (split[1] == 'cmd') {
+					// Get command from chat
 					var command = split.slice(2).join(' ');
+					// Run command
 					runCommand(command);
+					// Log to chat on command completion (TODO: error handling)
 					bot.chat('Command /' + command + ' executed on behalf of player ' + messagerName);
 				}
 				// Disconnect from server and end program command (bot leave, bot quit, bot end)
