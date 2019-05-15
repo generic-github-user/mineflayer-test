@@ -40,6 +40,15 @@ function distance({x: x1, y: y1, z: z1}, {x: x2, y: y2, z: z2}) {
 	return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
 }
 
+function runCommand(c) {
+	// test this
+	bot.chat((c[0] != '/' ? '/' : '') + c);
+}
+
+function setBlock(x, y, z, block) {
+	runCommand('setblock ' + x + ' ' + y + ' ' + z + ' ' + block);
+}
+
 bot.on('end', function() {
 	console.info('disconnected ' + number);
 	number--;
