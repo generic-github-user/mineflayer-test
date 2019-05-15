@@ -61,20 +61,32 @@ bot.once('login', function() {
 		if (messagerName != username) {
 			var split = message.split(' ');
 			if (split[0] == 'bot') {
+				// Sphere generation algorithm
 				if (split[1] == 'sphere') {
+					// Get position of bot
 					var pos = bot.entity.position;
 					
+					// Radius
 					var r = parseFloat(split[2]) || 10;
+					// Thickness
 					var t = parseFloat(split[3]) || 1;
+					// Material
 					var m = split[4] || 'stained_glass 5';
 					
+					// Loop through all blocks in cube area around the bot
 					for (var i = -r; i < r; i++) {
 						for (var j = -r; j < r; j++) {
 							for (var w = -r; w < r; w++) {
+								// Get coordinates of block to check
 								var offset = pos.offset(i, j, w)
 								var o = offset;
 								var dist = distance(pos, offset)
-								if (dist < r && dist > r - t && bot.blockAt(offset).name == 'air') {
+								// Replace block if it is:
+								//  - Within range (r)
+								//  - Outside of inner range (radius - thickness)
+								//  - Air
+								if (dist <= r && dist > r - t && bot.blockAt(offset).name == 'air') {
+									// Use setblock command to replace block at given coordinates with given material
 									setBlock(o.x, o.y, o.z, m);
 								}
 							}
