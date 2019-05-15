@@ -91,6 +91,7 @@ bot.once('login', function() {
 				} else if (split[1] == 'leave' || split[1] == 'quit' || split[1] == 'end') {
 					bot.chat('Bye!');
 					console.log('Disconnecting from server');
+					bot.quit();
 					process.exit();
 				}
 			}
