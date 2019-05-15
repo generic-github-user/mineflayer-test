@@ -1,3 +1,4 @@
+// Import modules
 var mc = require('minecraft-protocol');
 var mineflayer = require('mineflayer');
 var vec3 = require('vec3');
@@ -13,6 +14,7 @@ var number = 0;
 var username = 'testbot';
 var port = 0;
 
+// Create bot
 var bot = mineflayer.createBot({
 	host: 'localhost',
 	port: port,
@@ -36,6 +38,7 @@ console.log(bot.players);
 	// return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
 // }
 
+// Vector distance
 function distance({x: x1, y: y1, z: z1}, {x: x2, y: y2, z: z2}) {
 	return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
 }
@@ -49,8 +52,10 @@ function setBlock(x, y, z, block) {
 	runCommand('setblock ' + x + ' ' + y + ' ' + z + ' ' + block);
 }
 
+// Alias
 const mr = Math.round;
 
+// Supplementary Vec3 vector rounding function
 function round(v) {
 	return new vec3(mr(v.x), mr(v.y), mr(v.z));
 }
@@ -58,8 +63,11 @@ function round(v) {
 bot.once('login', function() {
 	bot.chat('Bot online.');
 	bot.on('chat', (messagerName, message, translate, jsonMsg, matches) => {
+		// Check that message was not sent by bot
 		if (messagerName != username) {
+			// Split message into words
 			var split = message.split(' ');
+			// Check for command directed at bot
 			if (split[0] == 'bot') {
 				// Sphere generation algorithm
 				if (split[1] == 'sphere') {
@@ -124,6 +132,8 @@ bot.once('login', function() {
 		} else if ()
 	});
 });
+
+// Error logging
 
 bot.on('end', function() {
 	console.info('disconnected ' + number);
