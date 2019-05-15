@@ -80,6 +80,10 @@ bot.once('login', function() {
 							}
 						}
 					}
+					
+					var completionMessage = 'Sphere made of ['+m+'] generated at '+pos+' with a radius of '+r+' and thickness of '+t+'.';
+					bot.chat(completionMessage);
+					console.log(completionMessage);
 				} else if (split[1] == 'cmd') {
 					var command = split.slice(2).join(' ');
 					runCommand(command);
