@@ -128,6 +128,11 @@ bot.once('login', function() {
 					// bot.chat(global[split[2]] || undefined);
 					// bot.chat(b)
 					bot.chat('This has not been implemented yet.');
+				} else if (split[1] == 'tp') {
+					runCommand('/tp ' + username + ' ' + messagerName);
+					msg = 'Teleported bot to ' + messagerName;
+					bot.chat(msg);
+					console.log(msg);
 				}
 			} 
 		}
