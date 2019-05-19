@@ -70,7 +70,7 @@ bot.once('login', function() {
 					// Thickness
 					var t = parseFloat(split[3]) || 1;
 					// Material
-					var m = split[4] || 'stained_glass 5';
+					var m = split.slice(4).join(' ') || 'stained_glass 5';
 					
 					// Loop through all blocks in cube area around the bot
 					for (var i = -r; i < r; i++) {
