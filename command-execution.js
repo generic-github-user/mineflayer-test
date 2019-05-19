@@ -25,14 +25,6 @@ bot.on('connect', function() {
 	number++;
 });
 
-bot.once('spawn', function() {
-setTimeout(function() {
-	console.info('FIRE');
-console.log(bot.players);
-	bot.chat('/register 2222 2222');
-}, 3100);
-});
-
 // function distance(x1, y1, z1, x2, y2, z2) {
 	// return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2));
 // }

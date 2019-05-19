@@ -22,14 +22,6 @@ bot.on('connect', function() {
 	number++;
 });
 
-bot.once('spawn', function() {
-setTimeout(function() {
-	console.info('FIRE');
-console.log(bot.players);
-	bot.chat('/register 2222 2222');
-}, 3100);
-});
-
 bot.once('login', function() {
 	bot.creative.setInventorySlot(36, new Item(1, 1));
 	var referenceBlock = bot.blockAt(bot.entity.position.offset(2, 0, 2));
