@@ -1,4 +1,3 @@
-var mc = require('minecraft-protocol');
 var mineflayer = require('mineflayer');
 var vec3 = require('vec3');
 
